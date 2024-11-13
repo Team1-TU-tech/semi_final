@@ -4,6 +4,9 @@
 ```
 $ git clone https://github.com/Team1-TU-tech/semi_final.git
 $ docker compose up -d
+
+# DOCKER STOP
+$ docker compose down
 ```
 
 ## METRICS
