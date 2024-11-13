@@ -15,7 +15,7 @@
 - [Kafka](#Kafka)
 - [MariDB](#MariaDB)
 - [Grafana](#Grafana)
-- [Scale In/Out](#Scale-In/Out)
+- [Scale In/Out](#Spark-Worker-Scaling)
 - [Contributors](#Contributors)
 - [License](#License)
 - [문의](#문의)
@@ -238,7 +238,7 @@ http://localhost:3000/
 <br></br>
 
 
-## Scale-In/Out
+## Spark-Worker-Scaling
 
 <br></br>
 
