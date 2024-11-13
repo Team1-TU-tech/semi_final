@@ -2,7 +2,7 @@
 
 ## USAGE
 ```
-$ git clone
+$ git clone https://github.com/Team1-TU-tech/semi_final.git
 
 # DOCKER RUN
 $ docker compose up -d
@@ -13,6 +13,9 @@ $ docker exec -it tut-mariadb bash
 $ mariadb -u tut -p<password>
 $ show databases;
 $ use ticket;
+
+# DOCKER STOP
+$ docker compose down 
 ```
 - `.env` 파일에서 user id 및 password 확인 가능
 
