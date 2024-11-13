@@ -1,63 +1,56 @@
-# spark-dash
+# 주요 변경사항
+0.1/spark 와의 주요 변경사항은 다음과 같습니다.
 
-### Pypi
-- [spark-dash](https://pypi.org/project/spark-dash/)
+- Apache Spark 공식 이미지(apache/spark:latest)를 사용하도록 변경
+- Spark 클러스터의 메모리 및 코어 설정 수정: 과도한 자원 사용을 방지하고, 개발 환경에서의 효율적인 테스트가 가능하게 변경
+- Spark 워커의 스케일 조절 : deploy 블록의 replicas 옵션을 추가하여 클러스터의 스케일을 쉽게 조절하게 변경
 
-### usage
-1. Run streamlit 
+# Spark Cluster Setup with Docker
+![image](https://github.com/user-attachments/assets/69063391-b9b5-4d9d-ba0b-406ba60056f6)
+
+Docker Compose를 사용하여 Apache Spark 클러스터(Master, Worker, Spark-Submit)를 설정하고 관리한다.  
+docker-compose.yml 파일을 통해 Spark 클러스터를 실행하고, PySpark 스크립트를 Spark 클러스터에서 자동으로 실행한다.
+Scale Up
+
+## 실행 요구사항
+- [Docker 설치](https://docs.docker.com/desktop/)
 ```
-$ run-dashboard
- 
-  Local URL: http://localhost:8501
-  Network URL: http://172.31.41.91:8501
+docker --version 
+```
+- [Docker Compose 설치](https://docs.docker.com/compose/install/)
+```
+docker compose version
+```
+- app 폴더에 실행할 PySpark 스크립트 (app/pyspark_test.py)
+
+## 사용법
+
+1.  Docker Compose로 Spark 클러스터 시작
+```
+docker compose up -d
+```
+<br>
+
+2. Spark Web UI 확인
+[Spark Master UI](http://localhost:8080) 에서 현재 클러스터 상태, 실행 중인 애플리케이션, 작업의 진행 상황 등을 확인가능
+<br>
+
+3. 워커 스케일 조절
+
+```
+docker compose up -d --scale spark-worker=<worker N>
 ```
 
-2. Explore dashboard <br/>
-   1. main dashboard <br/>
-      <img src="https://github.com/user-attachments/assets/2f96e14b-1f77-4353-a511-0b1b2d8f00c4" width=50% /> <br/>
-
-      > a. 현재 spark 관련 container의 CPU 및 MEM 사용량을 보여줍니다.
-      > 
-      > b. 자동 Scale in/out까지 시간 진행률(60초 중에 얼마나 왔는지)
-      > 
-      > c. 수동 Scale in/out 버튼
-   2. Scale log dashboard <br/>
-      <img src="https://github.com/user-attachments/assets/cdad97b4-deee-4b43-a523-cdca3c1d9402" width=50% /> <br/>
-      > a. 데이터를 나타낼 log file 선택
-      > 
-      > b. 선택된 log file을 DataFrame으로 표출
-      > 
-      > c. 선택된 log file에서 시간별 Worker의 수를 line plot으로 표출
-      > 
-      > d. 선택된 log file에서 Scale In/Out이 일어난 횟수를 bar plot으로 표출
-  
-   3. Usage log dashboard <br/>
-      <!--img src="https://github.com/user-attachments/assets/5d1a44be-ed1a-4e91-8dcd-034ea91913e4" width=50% /-->
-      <img src="https://github.com/user-attachments/assets/1dd382dd-c291-482b-9813-93b254e9cecd" width=50% /> <br/>
-
-      > a. 데이터를 나타낼 log file 선택
-      > 
-      > b. 선택된 log file을 DataFrame으로 표출
-      > 
-      > c. 선택된 log file에서 CPU 사용량을 line plot으로 표출
-      > 
-      > d. 선택된 log file에서 현재 CPU 사용상태를 bar plot으로 표출
-
-### Configure
-```bash
-$ cat config.ini
-[limit]
-max_cpu_use=1   # 10%
-min_cpu_use=1   # 10%
-
-[scale]
-min_cnt=1
-max_cnt=10
+## 주요명령어
+1. 컨테이너 상태 확인
 ```
-> scale in/out이 일어나는 cpu %와 최대/최소 worker의 갯수를 `config.ini` 파일에 지정 
-
-### dependency
-![streamlit>=1.40.1](https://img.shields.io/badge/streamlit>=1.40.1-FF4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=FFFFFF) <br/>
-![matplotlib>=3.9.2](https://img.shields.io/badge/matplotlib>=3.9.2-3776AB.svg?style=for-the-badge&logo=python&logoColor=FFFFFF) <br/>
-![schedule>=1.2.2](https://img.shields.io/badge/schedule>=1.2.2-3776AB.svg?style=for-the-badge&logo=python&logoColor=FFFFFF) <br/>
-![tz-kst>=0.5.3](https://img.shields.io/badge/tz--kst>=0.5.3-3776AB.svg?style=for-the-badge&logo=python&logoColor=FFFFFF)
+docker compose ps
+```
+2. Spark 클러스터 종료
+```
+docker compose down
+```
+3. Spark 클러스터 다시 시작
+```
+dockercompose up -d
+```
