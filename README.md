@@ -9,7 +9,6 @@
 ## 목차
 - [기술스택](#기술스택)
 - [개발기간](#개발기간)
-- [회고](#회고)
 - [Airflow](#Airflow-celery)
 - [Spark](#Spark)
 - [Kafka](#Kafka)
@@ -17,6 +16,7 @@
 - [Grafana](#Grafana)
 - [Scale In/Out](#Spark-Worker-Scale)
 - [Contributors](#Contributors)
+- [회고](#회고)
 - [License](#License)
 - [문의](#문의)
 <br></br>
