@@ -2,7 +2,7 @@
 
 ## USAGE
 ```
-$ git clone 
+$ git clone https://github.com/Team1-TU-tech/semi_final.git
 $ docker compose up -d
 ```
 
