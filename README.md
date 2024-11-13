@@ -1,4 +1,4 @@
-# Login 기능 구현 (TU-tech JAVA PROJECT)
+# TU-tech Semi-Final PROJECT
 
 ## 개요
 - 최종 프로젝트를 위한 개발 환경을 Docker Compose를 활용하여 구축했으며, Airflow, Spark, Kafka, MariaDB 구성을 완료했습니다.
@@ -15,7 +15,7 @@
 - [Kafka](#Kafka)
 - [MariDB](#MariaDB)
 - [Grafana](#Grafana)
-- [Scale In/Out](#Spark-Worker-Scale-In/Out)
+- [Scale In/Out](#Scale-In/Out)
 - [Contributors](#Contributors)
 - [License](#License)
 - [문의](#문의)
@@ -235,10 +235,10 @@ http://localhost:3000/
 
 
 ##################################KAFKA-GRAFANA는 README????#####################
+<br></br>
 
 
-
-## Spark Worker Scale In/Out
+## Scale-In/Out
 
 <br></br>
 
