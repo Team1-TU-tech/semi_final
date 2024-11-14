@@ -151,11 +151,6 @@ sudo docker compose down
 로그와 상태를 확인한 후 필요에 따라 클러스터를 종료하고, 모든 리소스를 정리할 수 있습니다.
 <br></br>
 
-
-
-
-
-
 ## MariaDB
 
 ### 사용법
@@ -185,12 +180,6 @@ $ docker compose down
 <br></br>
 
 
-
-
-
-
-
-
 ## Grafana
 ### spark-prometheus-grafana
 
@@ -207,19 +196,19 @@ $ docker compose down
 spark-master - http://localhost:8080/metrics/master/prometheus/  
 spark-submit - http://localhost:4040/metrics/prometheus/
 
-## Apache Spark
+### Apache Spark
 
 http://localhost:8080/
 
 ![image](https://github.com/user-attachments/assets/46440832-2717-4296-ab2b-26da727cc8a9)
 
-## PROMETHEUS
+### PROMETHEUS
 
 http://localhost:9090/
 
 ![image](https://github.com/user-attachments/assets/47c741fa-fbd2-4b48-b972-a9ca835690c7)
 
-## GRAFANA
+### GRAFANA
 
 http://localhost:3000/
 
@@ -233,9 +222,6 @@ Kafka 결과
 <img width="1539" alt="스크린샷 2024-11-14 09 13 22" src="https://github.com/user-attachments/assets/66f25650-25ed-4375-9282-36ad64058259">
 
 <br></br>
-
-
-
 
 ## Spark-Worker-Scale
 
