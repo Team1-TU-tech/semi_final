@@ -10,7 +10,7 @@
 - [기술스택](#기술스택)
 - [개발기간](#개발기간)
 - [Airflow](#Airflow-celery)
-- [Spark](#Spark)
+- [Apache Spark](#Apache-Spark)
 - [Kafka](#Kafka)
 - [MariDB](#MariaDB)
 - [Grafana](#Grafana)
@@ -21,19 +21,20 @@
 - [문의](#문의)
 <br></br>
 
-## 기술스택 (######################수정정해야함요#######################)
-![Java 17](https://img.shields.io/badge/Java-17-007396?logo=java&logoColor=white)
+## 기술스택
 <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=flat&logo=Python&logoColor=F5F7F8"/>   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=F5F7F8"/> 
-<img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamit&logoColor=F5F7F8"/>   <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat&logo=Spring Boot&logoColor=F5F7F8"/>   <img src="https://img.shields.io/badge/MariaDB-003545?style=flat&logo=MariaDB&logoColor=F5F7F8"/>
+<img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamit&logoColor=F5F7F8"/>   <img src="https://img.shields.io/badge/MariaDB-003545?style=flat&logo=MariaDB&logoColor=F5F7F8"/>
+<img src="https://img.shields.io/badge/Grafana-F46800?style=flat&logo=Grafana&logoColor=F5F7F8"/>    <img src="https://img.shields.io/badge/Prometheus-E6522C?style=flat&logo=Prometheus&logoColor=F5F7F8"/>
+<img src="https://img.shields.io/badge/Apache Kafka-231F20?style=flat&logo=ApacheKafka&logoColor=F5F7F8"/>    <img src="https://img.shields.io/badge/Apache Airflow-017CEE?style=flat&logo=apache airflow&logoColor=F5F7F8"/>
 <br></br>
 
 ## 개발기간
 `2024.11.11 ~ 2024.11.13 (총 3일)`
 <br></br>
 
-## Airflow-celery  (#######글자크기나 마크다운 수정필요#######)
+## Airflow-celery
 
-##### usage
+### usage
 ```bash
 $ docker compose up -d    # 빈 디렉터로리에서 수행하면 기본폴더 생성됨
 $ sudo chmod 777 logs     # airflow 정상적으로 수행되지 않고 오류 발생함. 해당 command는 근본해결은 아니지만 airflow가 동작하게 해줌
@@ -42,20 +43,20 @@ $ sudo chmod 777 logs     # airflow 정상적으로 수행되지 않고 오류 �
 
 
 
-## Spark  (#######바꿔라 글자크기나 마크다운 수정필요#######)
+## Apache Spark
 
 - Apache Spark 공식 이미지(apache/spark:latest)를 사용하도록 변경
 - Spark 클러스터의 메모리 및 코어 설정 수정: 과도한 자원 사용을 방지하고, 개발 환경에서의 효율적인 테스트가 가능하게 변경
 - Spark 워커의 스케일 조절 : deploy 블록의 replicas 옵션을 추가하여 클러스터의 스케일을 쉽게 조절하게 변경
 
-# Spark Cluster Setup with Docker
+### Spark Cluster Setup with Docker
 ![image](https://github.com/user-attachments/assets/69063391-b9b5-4d9d-ba0b-406ba60056f6)
 
 Docker Compose를 사용하여 Apache Spark 클러스터(Master, Worker, Spark-Submit)를 설정하고 관리한다.  
 docker-compose.yml 파일을 통해 Spark 클러스터를 실행하고, PySpark 스크립트를 Spark 클러스터에서 자동으로 실행한다.
 
 
-## 실행 요구사항
+### 실행 요구사항
 - [Docker 설치](https://docs.docker.com/desktop/)
 ```
 docker --version 
@@ -66,7 +67,7 @@ docker compose version
 ```
 - app 폴더에 실행할 PySpark 스크립트 (app/pyspark_test.py)
 
-## 사용법
+### 사용법
 
 1.  Docker Compose로 Spark 클러스터 빌드 및 시작
 ```
@@ -84,16 +85,15 @@ docker compose up -d --build
 docker compose up -d --scale spark-worker=<worker N>
 ```
 
-## 주요명령어
-1. 컨테이너 상태 확인
+4. 컨테이너 상태 확인
 ```
 docker compose ps
 ```
-2. Spark 클러스터 종료
+5. Spark 클러스터 종료
 ```
 docker compose down
 ```
-3. Spark 클러스터 다시 시작
+6. Spark 클러스터 다시 시작
 ```
 docker compose up -d
 ```
@@ -103,28 +103,28 @@ docker compose up -d
 
 
 ## Kafka
-# Kafka 클러스터 및 프로듀서, 컨슈머 설정 (#######글자크기나 마크다운 수정필요#######)
+### Kafka 클러스터 및 프로듀서, 컨슈머 설정
 이 프로젝트에서는 Docker Compose를 사용하여 Kafka 브로커 3개, Zookeeper 3개, Kafka 프로듀서 및 Kafka 컨슈머를 설정합니다. 이 구성은 분산 메시징 시스템인 Kafka를 여러 브로커와 Zookeeper 인스턴스에서 실행하며, 데이터를 생성하고 소비할 수 있는 프로듀서와 컨슈머를 포함합니다. 컨슈머는 Kafka에서 읽은 데이터를 MariaDB에 저장합니다.
 <b></b>
 
-## 프로젝트 구성
+### 프로젝트 구성
 1. Kafka 브로커 3개 (`kafka1`, `kafka2`, `kafka3`)
 2. Zookeeper 3개 (`zookeeper1`, `zookeeper2`, `zookeeper3`)
 3. Kafka 프로듀서 (메시지를 생성하는 역할)
 4. Kafka 컨슈머 (메시지를 소비하는 역할)
 <b></b>
 
-## 카프카 클러스터 구성
+### 카프카 클러스터 구성
 <img width="1118" alt="스크린샷 2024-11-13 17 43 10" src="https://github.com/user-attachments/assets/efc0e822-e3a8-42a0-a8ef-acf3088b7792">
 <b></b>
 
-## 요구사항
+### 요구사항
 - docker
 - docker compose
 - mariaDB (외부서버에서 실행)
 <b></b>
 
-## 실행
+### 실행
 ```bash
 git clone https://github.com/Team1-TU-tech/semi_final.git
 git checkout -t origin/0.4.1/kafka
@@ -135,7 +135,7 @@ sudo docker compose up -d --build
 ```
 <b></b>
 
-## 브로커 로그 확인
+### 브로커 로그 확인
 ```bash
 sudo docker logs kafka1
 sudo docker logs kafka2
@@ -143,11 +143,11 @@ sudo docker logs kafka3
 ```
 <b></b>
 
-## 프로듀서와 컨슈머
+### 프로듀서와 컨슈머
 Kafka 프로듀서와 Kafka 컨슈머는 기본적으로 `Dockerfile`을 빌드하여 실행합니다.
 프로듀서는 tickets라는 주제로 메시지를 보내고, 컨슈머는 이 메시지를 소비합니다.
 
-## 종료
+### 종료
 ```bash
 sudo docker compose down
 ```
@@ -160,9 +160,8 @@ sudo docker compose down
 
 
 ## MariaDB
-# MARIADB  (#######글자크기나 마크다운 수정필요#######)
 
-## USAGE
+### 사용법
 ```
 $ git clone https://github.com/Team1-TU-tech/semi_final.git
 
@@ -181,7 +180,7 @@ $ docker compose down
 ```
 - `.env` 파일에서 user id 및 password 확인 가능
 
-## Result
+### 결과
 
 ![image](https://github.com/user-attachments/assets/771d9187-5dc5-4c4c-ab33-9e9f01609f0a)
 
@@ -196,9 +195,9 @@ $ docker compose down
 
 
 ## Grafana
-# spark-prometheus-grafana   (#######글자크기나 마크다운 수정필요#######)
+### spark-prometheus-grafana
 
-## USAGE
+### 사용법
 ```
 $ git clone https://github.com/Team1-TU-tech/semi_final.git
 $ docker compose up -d
@@ -207,11 +206,11 @@ $ docker compose up -d
 $ docker compose down
 ```
 
-## METRICS
+### 매트릭스
 spark-master - http://localhost:8080/metrics/master/prometheus/  
 spark-submit - http://localhost:4040/metrics/prometheus/
 
-## SPARK
+## Apache Spark
 
 http://localhost:8080/
 
@@ -233,19 +232,20 @@ http://localhost:3000/
 <br></br>
 
 
-##################################KAFKA-GRAFANA는 README????#####################
+Kafka 결과
+<img width="1539" alt="스크린샷 2024-11-14 09 13 22" src="https://github.com/user-attachments/assets/66f25650-25ed-4375-9282-36ad64058259">
+
 <br></br>
 
 
 
 
 ## Spark-Worker-Scale
-# spark-dash  (#######글자크기나 마크다운 수정필요#######)
 
 ### Pypi
 - [spark-dash](https://pypi.org/project/spark-dash/)
 
-### usage
+### 사용법
 1. Run streamlit 
 ```
 $ run-dashboard
@@ -298,7 +298,7 @@ max_cnt=10
 ```
 > scale in/out이 일어나는 cpu %와 최대/최소 worker의 갯수를 `config.ini` 파일에 지정 
 
-### dependency
+### dependencies
 ![streamlit>=1.40.1](https://img.shields.io/badge/streamlit>=1.40.1-FF4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=FFFFFF) <br/>
 ![matplotlib>=3.9.2](https://img.shields.io/badge/matplotlib>=3.9.2-3776AB.svg?style=for-the-badge&logo=python&logoColor=FFFFFF) <br/>
 ![schedule>=1.2.2](https://img.shields.io/badge/schedule>=1.2.2-3776AB.svg?style=for-the-badge&logo=python&logoColor=FFFFFF) <br/>
@@ -312,22 +312,27 @@ max_cnt=10
 
 ## 좋은점
 - 핵심 기능 구현 완료: 시간의 제약이 있었지만 필수 기능을 모두 구현해 프로젝트의 기본 목표를 달성할 수 있었다.
+- 아파치 카프카 이해도 상승: 카프카를 yaml로 build하면서 `acks`, `broker` 그리고 `zookeeper` 관계에 대해 자세히 알 수 있었다.
+- 원활한 역할 분배: 역할이 적절히 분배되어 좋았다.
+- 이슈 활성화: 이슈를 활용하여 팀 내 커뮤니케이션이 원활했다.
   
 ## 아쉬운점
 - Branch 전략 미흡: 사전에 branch 전략을 구체적으로 계획하지 않아 코드 기능 구분이 어려웠다.
+- Grafana에 대한 이해도 부족: Apache Spark와 Grafana와의 연결이 잘 이루어지지 않아 트러블 슈팅이 어려웠다.
 
 ## 개선할 점
-- [이슈 트래킹 활성화](https://github.com/Team1-TU-tech/semi_final/issues): 작업 과정을 체계적으로 관리할 수 있도록 이슈 업데이트 활성화가 필요하다.
 - 체계적인 Branch 전략 수립: 프로젝트 시작 전 branch 전략을 세우고 체계적으로 운영하여 협업 효율을 높여야 한다.
+- Grafana와 Spark 연결 개선: Grafana와 Apache Spark 간의 연결 문제를 해결하기 위해 관련 자료를 더 공부하고, 문제 해결을 위한 테스트와 트러블슈팅 과정을 기록하여 더 나은 이해도를 가져야 한다.
 <br></br>
 
 
 ## Contributors
-- Airflow
-- Spark
-- Kafka
-- Grafana, Prometheus
-- Spark-Worker Auto Scale
+- Apache Airflow: `Mingk42`
+- Apache Spark: `oddsummer56`
+- Apache Kafka: `hamsunwoo`
+- MariaDB: `hahahellooo`
+- Grafana, Prometheus: `hahahellooo`, `hamsunwoo`
+- Spark-Worker Auto Scale: `Mingk42`, `oddsummer56`
 <br></br>
 
 
