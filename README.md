@@ -47,9 +47,9 @@ $ sudo chmod 777 logs     # airflow 정상적으로 수행되지 않고 오류 �
 ![image](https://github.com/user-attachments/assets/69063391-b9b5-4d9d-ba0b-406ba60056f6)
 
 Docker Compose를 사용하여 Apache Spark 클러스터(Master, Worker, Spark-Submit)를 설정하고 관리한다.  
-docker-compose.yml 파일을 통해 Spark 클러스터를 실행하고, PySpark 스크립트를 Spark 클러스터에서 자동으로 실행한다.
-Spark 클러스터의 메모리 및 코어를 설정하여 과도한 자원 사용을 방지하고, 개발 환경에서의 효율적인 테스트가 가능하게 한다.
-Spark Worker의 deploy 블록에 replicas 옵션을 추가하여 클러스터의 스케일을 쉽게 조절하게 변경가능하다.
+docker-compose.yml 파일을 통해 Spark 클러스터를 실행하고, PySpark 스크립트를 Spark 클러스터에서 자동으로 실행한다.  
+Spark 클러스터의 메모리 및 코어를 설정하여 과도한 자원 사용을 방지하고, 개발 환경에서의 효율적인 테스트가 가능하다.  
+Spark Worker의 deploy 블록에 replicas 옵션을 추가하여 클러스터의 스케일을 쉽게 조절 가능하다.  
 
 ### 실행 요구사항
 - [Docker 설치](https://docs.docker.com/desktop/)
