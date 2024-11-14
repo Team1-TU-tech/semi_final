@@ -22,10 +22,8 @@
 <br></br>
 
 ## 기술스택
-<img src="https://img.shields.io/badge/Python-3.11-3776AB?style=flat&logo=Python&logoColor=F5F7F8"/>   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=F5F7F8"/> 
-<img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamit&logoColor=F5F7F8"/>   <img src="https://img.shields.io/badge/MariaDB-003545?style=flat&logo=MariaDB&logoColor=F5F7F8"/>
-<img src="https://img.shields.io/badge/Grafana-F46800?style=flat&logo=Grafana&logoColor=F5F7F8"/>    <img src="https://img.shields.io/badge/Prometheus-E6522C?style=flat&logo=Prometheus&logoColor=F5F7F8"/>
-<img src="https://img.shields.io/badge/Apache Kafka-231F20?style=flat&logo=ApacheKafka&logoColor=F5F7F8"/>    <img src="https://img.shields.io/badge/Apache Airflow-017CEE?style=flat&logo=apache airflow&logoColor=F5F7F8"/>
+<img src="https://img.shields.io/badge/Apache Airflow-017CEE?style=flat&logo=apache airflow&logoColor=F5F7F8"/>   <img src="https://img.shields.io/badge/Apache Spark-E25A1C?style=flat&logo=apachespark&logoColor=F5F7F8"/>    <img src="https://img.shields.io/badge/Apache Kafka-231F20?style=flat&logo=ApacheKafka&logoColor=F5F7F8"/>  <img src="https://img.shields.io/badge/MariaDB-003545?style=flat&logo=MariaDB&logoColor=F5F7F8"/>    <img src="https://img.shields.io/badge/Grafana-F46800?style=flat&logo=Grafana&logoColor=F5F7F8"/>    <img src="https://img.shields.io/badge/Prometheus-E6522C?style=flat&logo=Prometheus&logoColor=F5F7F8"/>    <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=flat&logo=Python&logoColor=F5F7F8"/>   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=F5F7F8"/> 
+<img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamit&logoColor=F5F7F8"/>   
 <br></br>
 
 ## 개발기간
