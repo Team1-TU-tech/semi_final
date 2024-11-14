@@ -34,7 +34,7 @@
 
 ## Airflow-celery
 
-### usage
+### 사용법
 ```bash
 $ docker compose up -d    # 빈 디렉터로리에서 수행하면 기본폴더 생성됨
 $ sudo chmod 777 logs     # airflow 정상적으로 수행되지 않고 오류 발생함. 해당 command는 근본해결은 아니지만 airflow가 동작하게 해줌
@@ -45,16 +45,13 @@ $ sudo chmod 777 logs     # airflow 정상적으로 수행되지 않고 오류 �
 
 ## Apache Spark
 
-- Apache Spark 공식 이미지(apache/spark:latest)를 사용하도록 변경
-- Spark 클러스터의 메모리 및 코어 설정 수정: 과도한 자원 사용을 방지하고, 개발 환경에서의 효율적인 테스트가 가능하게 변경
-- Spark 워커의 스케일 조절 : deploy 블록의 replicas 옵션을 추가하여 클러스터의 스케일을 쉽게 조절하게 변경
-
 ### Spark Cluster Setup with Docker
 ![image](https://github.com/user-attachments/assets/69063391-b9b5-4d9d-ba0b-406ba60056f6)
 
 Docker Compose를 사용하여 Apache Spark 클러스터(Master, Worker, Spark-Submit)를 설정하고 관리한다.  
 docker-compose.yml 파일을 통해 Spark 클러스터를 실행하고, PySpark 스크립트를 Spark 클러스터에서 자동으로 실행한다.
-
+Spark 클러스터의 메모리 및 코어를 설정하여 과도한 자원 사용을 방지하고, 개발 환경에서의 효율적인 테스트가 가능하게 한다.
+Spark Worker의 deploy 블록에 replicas 옵션을 추가하여 클러스터의 스케일을 쉽게 조절하게 변경가능하다.
 
 ### 실행 요구사항
 - [Docker 설치](https://docs.docker.com/desktop/)
