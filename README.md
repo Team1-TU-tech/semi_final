@@ -309,7 +309,7 @@ max_cnt=10
 
 ## Contributors
 - Apache Airflow: `Mingk42`
-- Apache Spark: `oddsummer56`
+- Apache Spark: `oddsummer56`, `hahahellooo`
 - Apache Kafka: `hamsunwoo`
 - MariaDB: `hahahellooo`
 - Grafana, Prometheus: `hahahellooo`, `hamsunwoo`
